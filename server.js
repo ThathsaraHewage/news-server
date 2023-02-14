@@ -10,6 +10,7 @@ const cors = require("cors");
 //My route
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
+const categoryRoutes = require("./routes/category");
 
 // Initialize DB
 require('./config/db-connect')();
@@ -22,6 +23,7 @@ app.use(cors());
 //Myroutes
 app.use("/news", authRoutes );
 app.use("/news", userRoutes );
+app.use("/news", categoryRoutes);
 
 
 /**
