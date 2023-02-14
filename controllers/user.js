@@ -1,5 +1,12 @@
 const User = require("../models/user.js");
 
+/**
+ * get user by id
+ * @param req
+ * @param res
+ * @param next
+ * @param id
+*/
 exports.getUserById = (req, res, next, id) =>{
     User.findById(id).exec((error, user) => {
         if (error || !user) {
@@ -12,6 +19,11 @@ exports.getUserById = (req, res, next, id) =>{
     });
 };
 
+/**
+ * get user
+ * @param req
+ * @param res
+*/
 exports.getUser = (req, res) =>{
     // get back here for password
     req.profile.salt = undefined;
@@ -21,6 +33,11 @@ exports.getUser = (req, res) =>{
     return res.json(req.profile);
 };
 
+/**
+ * update user
+ * @param req
+ * @param res
+*/
 exports.updateUser = (req, res) =>{
     User.findByIdAndUpdate(
         {_id: req.profile._id},

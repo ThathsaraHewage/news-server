@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 mongoose.set("strictQuery", false);
 
+// connection to mongodb database
 const connectDb = async () => {
     try {
         await mongoose.connect(process.env.MONGO_URI, {
