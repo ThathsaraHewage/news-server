@@ -11,6 +11,7 @@ const cors = require("cors");
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
 const categoryRoutes = require("./routes/category");
+const newsRoutes = require("./routes/news");
 
 // Initialize DB
 require('./config/db-connect')();
@@ -21,16 +22,17 @@ app.use(cookieParser());
 app.use(cors());
 
 //Myroutes
-app.use("/news", authRoutes );
-app.use("/news", userRoutes );
+app.use("/news", authRoutes);
+app.use("/news", userRoutes);
 app.use("/news", categoryRoutes);
+app.use("/news", newsRoutes);
 
 
 /**
  * define port
  * */
- const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
- app.listen(PORT, () => {
-   console.log('Server is running on port : ' + PORT);
- });
+app.listen(PORT, () => {
+  console.log('Server is running on port : ' + PORT);
+});
