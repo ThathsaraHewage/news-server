@@ -7,6 +7,11 @@ const newsSchema = new mongoose.Schema({
         trim: true,
         required: true,
     },
+    summary:{
+        type: String,
+        trim: true,
+        required: true,
+    },
     description: {
         type: String,
         trim: true,

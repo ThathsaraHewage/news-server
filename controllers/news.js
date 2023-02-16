@@ -16,9 +16,9 @@ exports.createNews = (req, res) => {
     }
 
     //destructure the feildds
-    const { name, description, category } = fields;
+    const { name, description, summary,category } = fields;
 
-    if (!name || !description || !category) {
+    if (!name || !description || !summary || !category) {
       return res.status(400).json({
         error: "Please include all fields..."
       });
