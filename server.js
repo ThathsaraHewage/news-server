@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 
 const mongoose = require("mongoose");
 const express = require("express");
@@ -14,10 +14,10 @@ const categoryRoutes = require("./routes/category");
 const newsRoutes = require("./routes/news");
 
 // Initialize DB
-require('./config/db-connect')();
+require("./config/db-connect")();
 
 //Middelware
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 
@@ -27,12 +27,11 @@ app.use("/news", userRoutes);
 app.use("/news", categoryRoutes);
 app.use("/news", newsRoutes);
 
-
 /**
  * define port
  * */
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log('Server is running on port : ' + PORT);
+  console.log("Server is running on port : " + PORT);
 });
